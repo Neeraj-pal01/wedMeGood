@@ -60,7 +60,7 @@ const ImageSlider2 = () => {
               className="object-cover h-80 w-full shadow-2xl hover:shadow-sm shadow-black rounded-2xl"
             />
             <div className='text-[#e72e77] pt-5 text-center'>
-              <p className=" text-xl font-semibold italic ">{i.venue} </p>
+              <p className=" text-xl font-medium italic ">{i.venue} </p>
             </div>
           </div>
         ))}

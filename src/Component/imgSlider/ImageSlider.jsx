@@ -55,7 +55,7 @@ const ImageSlider = () => {
               className="object-cover h-full w-full  hover:rounded-xl shadow-xl shadow-black"
             />
             <div className="absolute bottom-0 text-white bg-gradient-to-b  pt-3  w-full  from-gray-700/10 from-5% to-black/50 to-70% ">
-            <div className='group-hover:-translate-y-3 pl-3 transition-transform ease-in-out duration-500 '>
+            <div className='group-hover:-translate-y-2 pl-3 transition-transform ease-in-out duration-500 '>
               <p className=" text-3xl ">{i.venue} Venue</p>
               <p className="text-sm pb-2">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
