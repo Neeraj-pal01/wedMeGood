@@ -10,6 +10,8 @@ import vmgImg1 from '../../assets/VmgSection/1.jpg'
 import vmgImg2 from '../../assets/VmgSection/2.jpg'
 import vmgImg3 from '../../assets/VmgSection/3.jpg'
 import vmgImg4 from '../../assets/VmgSection/4.jpg'
+import mobileImg from '../../assets/mobile.png'
+import ImageSlider3 from '../imgSlider/ImageSlider3'
 
 export default function Home() {
 
@@ -56,7 +58,10 @@ export default function Home() {
 
   return (
     <>
-      <section className='bg-[#e6f5f0] font-'>
+
+      <div className='flex flex-col gap-20'>
+      {/* Popular Vanue Search & Best Ceremonies */}
+      <section className='bg-[#e6f5f0] '>
 
         <div className='w-4/5 mx-auto py-10 flex flex-col gap-10'>
           <div className='flex flex-col gap-5'>
@@ -72,13 +77,13 @@ export default function Home() {
       </section>
 
       {/* Wedding Category Section  */}
-      <section className='w-4/5 mx-auto py-10'>
+      <section className='w-4/5 mx-auto'>
         <div>
           <h2 className='text-2xl text-gray-600 font-medium py-2'>Wedding Categories</h2>
         </div>
         <div className='grid grid-cols-2 gap-4'>
           {img.map((i) => (
-            <div className={`flex justify-between items-center ${i.bg} shadow-2xl group`}>
+            <div key={i.title} className={` flex justify-between items-center ${i.bg} shadow-2xl group`}>
               <div className='flex flex-col  justify-center pl-5 text-gray-700'>
                 <h3 className='text-xl font-medium'>{i.title}</h3>
                 <p className='text-md'>{i.details}</p>
@@ -92,11 +97,11 @@ export default function Home() {
       </section>
 
       {/* WMG Inhouse Services section  */}
-      <section className='w-4/5 mx-auto py-5'>
+      <section className='w-4/5 mx-auto'>
         <div>
           <h2 className='text-2xl text-gray-600 font-medium py-2'>WMG Inhouse Services</h2>
         </div>
-  
+
         <div className='grid grid-cols-2 gap-3 gap-y-5'>
 
 
@@ -154,18 +159,39 @@ export default function Home() {
         </div>
       </section>
 
-      <section className='w-4/5 mx-auto py-5 bg-[#ffebe8]'>
+      {/* App Download Section */}
+      <section className='w-4/5 mx-auto bg-[#ffebe8] rounded-xl '>
+        <div className='flex justify-around py-10 '>
+          <div className='flex flex-col items-center gap-7 justify-center'>
+            <h2 className='text-2xl font-medium text-[#b4245d]'>Download The WedMeGood Mobile App Today!</h2>
+            <div className='flex list-none gap-5 font-medium text-[#e72e77]'>
+              <li>Save Wedding Ideas</li>
+              <li>Shortlisted Vendors</li>
+              <li>Get Free Wedding Checklist</li>
+            </div>
+            <p className='text-[#b4245d] font-semibold'>You will receive an SMS with a link to download the App</p>
+            <div className='flex text-[#e72e77] text-xl font-medium gap-2'>
+              <span>+91</span>
+              <input className='px-2 outline-none bg-inherit border-b border-[#e72e77]' type="text" name="" id="" />
+            </div>
+            <button className='p-3 rounded-full text-xl font-medium border border-[#e72e77] hover:text-[#e72e77] bg-[#e72e77] text-white hover:bg-white'>Download App</button>
 
-      <div className='flex justify-around items-center'>
-        <div>
-          
+          </div>
+          <div>
+            <img className=' h-96' src={mobileImg} alt="" />
+          </div>
         </div>
-        <div>
-          
-        </div>
-      </div>
 
       </section>
+
+      {/* Fake Wedding Stories Section  */}
+      <section className='w-4/5 mx-auto'>
+          <div className='py-2'>
+            <h2 className='text-2xl text-gray-600 font-medium py-2'>Fake Wedding Stories</h2>
+          </div>
+            <ImageSlider3 />
+      </section>
+      </div>
     </>
   )
 }

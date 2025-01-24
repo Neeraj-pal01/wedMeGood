@@ -6,3 +6,12 @@ body {
     font-family: 'Montserrat', serif;
   }
   
+footer h4{
+  @apply font-semibold
+  text-[#e72e77]
+}
+footer li{
+  @apply hover:text-[#e72e77]
+  font-normal
+  text-sm
+}
