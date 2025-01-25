@@ -1,6 +1,9 @@
+*{
+    margin: 0;
+    padding: 0;
+}
 nav ul li{
     @apply hover:text-gray-400
     cursor-pointer
     transition-colors ease-out duration-500 delay-0
-    
 }

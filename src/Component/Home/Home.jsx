@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import ImageSlider from '../imgSlider/ImageSlider'
 import ImageSlider2 from '../imgSlider/ImageSlider2'
 import img1 from '../../assets/weddingCategory/1.jpg'
@@ -12,6 +12,8 @@ import vmgImg3 from '../../assets/VmgSection/3.jpg'
 import vmgImg4 from '../../assets/VmgSection/4.jpg'
 import mobileImg from '../../assets/mobile.png'
 import ImageSlider3 from '../imgSlider/ImageSlider3'
+
+
 
 export default function Home() {
 
@@ -53,6 +55,26 @@ export default function Home() {
       bg: 'bg-[#cfcdb8]'
     }
   ]
+  const [sliceCount, setSliceCount] = useState(3);
+
+  useEffect(() => {
+    // Function to update slice count based on screen size
+    const updateSliceCount = () => {
+      if (window.matchMedia('(min-width: 1024px)').matches) {
+        setSliceCount(3); // Large screens
+      } else if (window.matchMedia('(min-width: 768px)').matches) {
+        setSliceCount(2); // Medium screens
+      } else {
+        setSliceCount(1); // Small screens
+      }
+    };
+
+    // Call on component mount and screen resize
+    updateSliceCount();
+    window.addEventListener('resize', updateSliceCount);
+
+    return () => window.removeEventListener('resize', updateSliceCount);
+  }, []);
 
 
 
@@ -67,11 +89,11 @@ export default function Home() {
           <div className='flex flex-col gap-5'>
 
             <h2 className='text-2xl text-gray-600 font-medium'>Popular Vanue Search</h2>
-            <ImageSlider />
+            <ImageSlider {...{ sliceCount }}/>
           </div>
           <div className='flex flex-col gap-5 pt-5'>
             <h2 className='text-2xl  text-gray-600 font-medium'>Best Ceremonies</h2>
-            <ImageSlider2 />
+            <ImageSlider2 {...{ sliceCount }}/>
           </div>
         </div>
       </section>
@@ -79,17 +101,17 @@ export default function Home() {
       {/* Wedding Category Section  */}
       <section className='w-4/5 mx-auto'>
         <div>
-          <h2 className='text-2xl text-gray-600 font-medium py-2'>Wedding Categories</h2>
+          <h2 className='text-2xl text-gray-600 font-medium py-6'>Wedding Categories</h2>
         </div>
-        <div className='grid grid-cols-2 gap-4'>
+        <div className='grid grid-cols-1 md:grid-cols-2  gap-7'>
           {img.map((i) => (
-            <div key={i.title} className={` flex justify-between items-center ${i.bg} shadow-2xl group`}>
-              <div className='flex flex-col  justify-center pl-5 text-gray-700'>
-                <h3 className='text-xl font-medium'>{i.title}</h3>
-                <p className='text-md'>{i.details}</p>
+            <div key={i.title} className={`flex justify-between items-center ${i.bg} shadow-2xl group`}>
+              <div className='flex flex-col  justify-center pl-2 lg:pl-5 text-gray-700'>
+                <h3 className='text-lg md:text-base lg:text-xl  font-medium'>{i.title}</h3>
+                <p className='text-base md:text-xs lg:text-base'>{i.details}</p>
               </div>
               <div className='rounded-s-full overflow-hidden'>
-                <img className='group-hover:scale-110 transition-transform duration-300 ease-in-out' src={i.img} alt="" />
+                <img className='h-full group-hover:scale-110 transition-transform duration-300 ease-in-out' src={i.img} alt="" />
               </div>
             </div>
           ))}
@@ -102,17 +124,16 @@ export default function Home() {
           <h2 className='text-2xl text-gray-600 font-medium py-2'>WMG Inhouse Services</h2>
         </div>
 
-        <div className='grid grid-cols-2 gap-3 gap-y-5'>
-
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-3 gap-y-5 text-center'>
 
           <div className='flex flex-col p-2 justify-between h-96 border-[0.5px] border-gray-300 rounded-xl group shadow-xl'>
             <div className='h-auto w-full overflow-hidden rounded-xl relative flex items-center'>
               <div className="hidden absolute w-full bg-gradient-to-b from-transparent to-black/75 group-hover:flex h-80 transition-colors duration-300 ease-in-out z-10"></div>
               <img className='group-hover:scale-110 transition-transform ease-in-out duration-300' src={vmgImg1} alt="" />
             </div>
-            <div className='flex flex-col items-center justify-center gap-2 pb-8'>
-              <h3 className='text-2xl font-medium text-[#e72e77] '>Wedsta</h3>
-              <p>WMG At Home, Family Makeup Services</p>
+            <div className='flex flex-col items-center justify-center gap-2 pb-4 lg:pb-8 pt-2'>
+              <h3 className='text-xl lg:text-2xl font-medium text-[#e72e77] '>Wedsta</h3>
+              <p className='text-base'>WMG At Home, Family Makeup Services</p>
               <button className='p-2 font-medium border border-[#e72e77] text-[#e72e77] hover:bg-[#e72e77] hover:text-white'>KNOW MORE</button>
             </div>
           </div>
@@ -123,9 +144,9 @@ export default function Home() {
               <div className="hidden absolute w-full bg-gradient-to-b from-transparent to-black/75 group-hover:flex h-80 transition-colors duration-300 ease-in-out z-10"></div>
               <img className='group-hover:scale-110 transition-transform ease-in-out duration-300' src={vmgImg2} alt="" />
             </div>
-            <div className='flex flex-col items-center justify-center gap-2 pb-8'>
-              <h3 className='text-2xl font-medium text-[#e72e77] '>Wedsta</h3>
-              <p>WMG At Home, Family Makeup Services</p>
+            <div className='flex flex-col items-center justify-center gap-2 pt-2 pb-4 lg:pb-8'>
+              <h3 className='text-xl lg:text-2xl font-medium text-[#e72e77] '>Genie Services</h3>
+              <p>Plan your dream wedding in your budget</p>
               <button className='p-2 font-medium border border-[#e72e77] text-[#e72e77] hover:bg-[#e72e77] hover:text-white'>KNOW MORE</button>
             </div>
           </div>
@@ -136,9 +157,9 @@ export default function Home() {
               <div className="hidden absolute w-full bg-gradient-to-b from-transparent to-black/75 group-hover:flex h-80 transition-colors duration-300 ease-in-out z-10"></div>
               <img className='group-hover:scale-110 transition-transform ease-in-out duration-300' src={vmgImg3} alt="" />
             </div>
-            <div className='flex flex-col items-center justify-center gap-2 pb-8'>
-              <h3 className='text-2xl font-medium text-[#e72e77] '>Wedsta</h3>
-              <p>WMG At Home, Family Makeup Services</p>
+            <div className='flex flex-col items-center justify-center gap-2 pt-2 pb-4 lg:pb-8'>
+              <h3 className='text-xl lg:text-2xl font-medium text-[#e72e77] '>Venue Booking Service</h3>
+              <p>Best Price Guaranteed</p>
               <button className='p-2 font-medium border border-[#e72e77] text-[#e72e77] hover:bg-[#e72e77] hover:text-white'>KNOW MORE</button>
             </div>
           </div>
@@ -149,9 +170,9 @@ export default function Home() {
               <div className="hidden absolute w-full bg-gradient-to-b from-transparent to-black/75 group-hover:flex h-80 transition-colors duration-300 ease-in-out z-10"></div>
               <img className='group-hover:scale-110 transition-transform ease-in-out duration-300' src={vmgImg4} alt="" />
             </div>
-            <div className='flex flex-col items-center justify-center gap-2 pb-8'>
-              <h3 className='text-2xl font-medium text-[#e72e77] '>Wedsta</h3>
-              <p>WMG At Home, Family Makeup Services</p>
+            <div className='flex flex-col items-center justify-center gap-2 pt-2 pb-8'>
+              <h3 className='text-xl lg:text-2xl font-medium text-[#e72e77] '>Destination Wedding</h3>
+              <p>Tours and Trips for Destination Wedding</p>
               <button className='p-2 font-medium border border-[#e72e77] text-[#e72e77] hover:bg-[#e72e77] hover:text-white'>KNOW MORE</button>
             </div>
           </div>
@@ -162,23 +183,23 @@ export default function Home() {
       {/* App Download Section */}
       <section className='w-4/5 mx-auto bg-[#ffebe8] rounded-xl '>
         <div className='flex justify-around py-10 '>
-          <div className='flex flex-col items-center gap-7 justify-center'>
-            <h2 className='text-2xl font-medium text-[#b4245d]'>Download The WedMeGood Mobile App Today!</h2>
-            <div className='flex list-none gap-5 font-medium text-[#e72e77]'>
+          <div className='flex flex-col items-center text-center md:text-left md:px-0 gap-5 lg:gap-7 justify-center'>
+            <h2 className='text-lg md:text-xl lg:text-2xl font-medium text-[#b4245d]'>Download The WedMeGood Mobile App Today!</h2>
+            <div className='flex list-none text-center lg:gap-5 font-medium text-[#e72e77]'>
               <li>Save Wedding Ideas</li>
               <li>Shortlisted Vendors</li>
               <li>Get Free Wedding Checklist</li>
             </div>
-            <p className='text-[#b4245d] font-semibold'>You will receive an SMS with a link to download the App</p>
-            <div className='flex text-[#e72e77] text-xl font-medium gap-2'>
+            <p className='text-[#b4245d] text-sm lg:text-lg font-semibold'>You will receive an SMS with a link to download the App</p>
+            <div className='flex text-[#e72e77] text-lg lg:text-xl font-medium gap-2'>
               <span>+91</span>
-              <input className='px-2 outline-none bg-inherit border-b border-[#e72e77]' type="text" name="" id="" />
+              <input className='px-1 lg:px-2 outline-none bg-inherit border-b border-[#e72e77]' type="text" name="" id="" />
             </div>
-            <button className='p-3 rounded-full text-xl font-medium border border-[#e72e77] hover:text-[#e72e77] bg-[#e72e77] text-white hover:bg-white'>Download App</button>
+            <button className='p-2 lg:p-3 rounded-full  font-medium border border-[#e72e77] hover:text-[#e72e77] bg-[#e72e77] text-white hover:bg-white'>Download App</button>
 
           </div>
-          <div>
-            <img className=' h-96' src={mobileImg} alt="" />
+          <div className='hidden md:block'>
+            <img className='h-72 px-3 lg:h-96' src={mobileImg} alt="" />
           </div>
         </div>
 
@@ -189,7 +210,7 @@ export default function Home() {
           <div className='py-2'>
             <h2 className='text-2xl text-gray-600 font-medium py-2'>Fake Wedding Stories</h2>
           </div>
-            <ImageSlider3 />
+            <ImageSlider3 {...{ sliceCount }} />
       </section>
       </div>
     </>

@@ -8,10 +8,10 @@ export default function Footer() {
         <>
             <footer className='my-14 overflow-hidden'>
                 <div className='my-8 w-4/5 mx-auto border-t border-gray-400'>
-                    <div className='flex list-none justify-around  pt-10'>
-                        <div className='flex flex-col gap-5'>
-                            <div className='flex flex-col gap-3 text-[#e72e77] font-medium'>
-                                <img className=' w-56' src={logo} alt="" />
+                    <div className='flex list-none flex-wrap gap-y-10  md:justify-between lg:justify-around  pt-10'>
+                        <div className='flex flex-col md:grow lg:grow-0 md:w-full lg:w-fit items-center gap-5'>
+                            <div className='flex flex-col gap-3 text-[#e72e77] font-medium items-center'>
+                                <img className='w-44 lg:w-56' src={logo} alt="" />
                                 <h4>We Connect The Multiverse !</h4>
                             </div>
                             <h4>Connect With Us</h4>

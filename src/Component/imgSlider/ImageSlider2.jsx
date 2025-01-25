@@ -5,7 +5,7 @@ import img3 from '../../assets/ImageSlider/BridalWear.jpg';
 import img4 from '../../assets/ImageSlider/Invitation.jpg';
 import img5 from '../../assets/ImageSlider/BridalMakup.jpg';
 
-const ImageSlider2 = () => {
+const ImageSlider2 = ({sliceCount}) => {
   const initialImgs = [
     {
       img: img1,
@@ -50,10 +50,10 @@ const ImageSlider2 = () => {
   return (
   
       <div className="flex transition-transform ease-in-out duration-500 justify-between" >
-        {imgs.slice(0, 4).map((i, index) => (
+        {imgs.slice(0, sliceCount+1).map((i, index) => (
           <div
             key={index}
-            className=" w-[22%] flex-shrink-0  group" 
+            className=" w-[45%] md:w-[30%] lg:w-[22%] flex-shrink-0 group" 
           >
             <img
               src={i.img} alt=""

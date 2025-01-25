@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import neerajImg from '../../assets/neeraj.png';
 
-const ImageSlider = () => {
+const ImageSlider = ({sliceCount}) => {
   const initialImgs = [
     {
       img: neerajImg,
@@ -44,11 +44,11 @@ const ImageSlider = () => {
 
   return (
   
-      <div className="flex transition-transform ease-in-out duration-500 justify-between" >
-        {imgs.slice(0, 3).map((i, index) => (
+      <div className="flex transition-transform ease-in-out duration-500 justify-center md:justify-between" >
+        {imgs.slice(0, sliceCount).map((i, index) => (
           <div
             key={index}
-            className="relative w-[32%] flex-shrink-0 h-80 group " 
+            className="relative w-[100%] md:w-[47%] lg:w-[32%] flex-shrink-0 h-80 group " 
           >
             <img
               src={i.img} alt=""

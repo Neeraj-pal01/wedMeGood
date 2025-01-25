@@ -6,7 +6,7 @@ import img3 from '../../assets/ImageSlider3/3.png';
 import img4 from '../../assets/ImageSlider3/4.png';
 import img5 from '../../assets/ImageSlider3/5.png';
 
-const ImageSlider3 = () => {
+const ImageSlider3 = ({ sliceCount }) => {
   const initialImgs = [
     {
       img: img1,
@@ -45,10 +45,10 @@ const ImageSlider3 = () => {
 
   return (
     <div className="flex justify-between" >
-      {imgs.slice(0, 3).map((i, index) => (
+      {imgs.slice(0, sliceCount).map((i, index) => (
         <div
           key={index}
-          className=" w-[32%] flex-shrink-0  relative border-[0.5px] border-gray-400 rounded-xl shadow-xl overflow-hidden"
+          className="w-[97%] lg:w-[32%] flex-shrink-0  relative border-[0.5px] border-gray-400 rounded-xl shadow-xl overflow-hidden"
         >
           <img
             src={i.img} alt=""
