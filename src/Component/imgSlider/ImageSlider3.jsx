@@ -51,7 +51,7 @@ const ImageSlider3 = ({ sliceCount }) => {
           className="w-[97%] lg:w-[32%] flex-shrink-0  relative border-[0.5px] border-gray-400 rounded-xl shadow-xl overflow-hidden"
         >
           <img
-            src={i.img} alt=""
+            src={i.img} alt="img"
             className="object-cover h-60 w-full"
           />
           <div className='bg-white flex flex-col justify-center gap-2 pl-5 py-3'>

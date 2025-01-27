@@ -7,3 +7,19 @@ nav ul li{
     cursor-pointer
     transition-colors ease-out duration-500 delay-0
 }
+nav span lord-icon{
+    @apply h-6 w-6 md:h-7 md:w-7
+}
+.download lord-icon{
+    @apply h-10 w-10
+}
+
+form input{
+    @apply 
+    shadow-lg
+    hover:shadow-2xl
+    placeholder:text-pink-400 rounded-full p-2 outline-none
+    shadow-blue-400/50
+    gap-4
+}
+

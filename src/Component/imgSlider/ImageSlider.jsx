@@ -51,7 +51,7 @@ const ImageSlider = ({sliceCount}) => {
             className="relative w-[100%] md:w-[47%] lg:w-[32%] flex-shrink-0 h-80 group " 
           >
             <img
-              src={i.img} alt=""
+              src={i.img} alt={i.venue}
               className="object-cover h-full w-full  hover:rounded-xl shadow-xl shadow-black"
             />
             <div className="absolute bottom-0 text-white bg-gradient-to-b  pt-3  w-full  from-gray-700/10 from-5% to-black/50 to-70% ">
