@@ -18,8 +18,10 @@ form input{
     @apply 
     shadow-lg
     hover:shadow-2xl
-    placeholder:text-pink-400 rounded-full p-2 outline-none
+    placeholder:text-pink-400 rounded-full p-1 lg:p-2 outline-none
     shadow-blue-400/50
+    w-4/5  lg:w-full
     gap-4
 }
+
 
